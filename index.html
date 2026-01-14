@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOBER ENERGY - Energia, która gryzie</title>
+    <style>
+        /* --- ZMIENNE KOLORÓW --- */
+        :root {
+            --bober-red: #C8102E;
+            --bober-green: #6C8E23;
+            --bober-dark: #121212; /* Bardzo ciemne tło, nie białe */
+            --bober-grey: #2F2F2F;
+            --text-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            background-color: var(--bober-dark);
+            color: var(--text-white);
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* --- TŁO (PATTERN) --- */
+        /* Generujemy wzór CSS imitujący ten z Twoich plików */
+        .background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-color: var(--bober-dark);
+            background-image: 
+                linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%),
+                linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.4;
+        }
+
+        /* --- GŁÓWNY KONTENER --- */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* HASŁO GŁÓWNE */
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+        
+        h1 span {
+            color: var(--bober-red);
+        }
+
+        /* LOGO NA ŚRODKU */
+        .logo-placeholder {
+            width: 300px;
+            height: auto;
+            margin: 20px 0;
+            /* Animacja "oddechu" */
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            display: block;
+            /* Jeśli nie wgrasz zdjęcia, ten styl nada kształt */
+            min-height: 200px; 
+        }
+
+        /* CENA */
+        .price {
+            font-size: 4rem;
+            color: var(--bober-green);
+            margin: 20px 0 10px 0;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        /* PRZYCISK */
+        .btn {
+            background: var(--bober-red);
+            color: #fff;
+            padding: 15px 60px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #e61c3d;
+        }
+
+        /* --- SEKCJA HISTORII (NA DOLE) --- */
+        .story {
+            max-width: 700px;
+            margin-top: 80px;
+            padding: 30px;
+            background: rgba(0,0,0,0.6);
+            border-top: 2px solid var(--bober-green);
+            text-align: left;
+        }
+
+        .story h2 {
+            color: var(--bober-red);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .story p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        /* Animacja Logo */
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(200,16,46,0.2)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 20px rgba(200,16,46,0.5)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(200,16,46,0.2)); }
+        }
+
+        /* RWD */
+        @media(max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .price { font-size: 3rem; }
+            .logo-placeholder { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="container">
+        
+        <h1>ENERGIA, KTÓRA <span>GRYZIE</span></h1>
+
+        <div class="logo-placeholder">
+            <img src="logo.png" alt="Bober Energy Logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
+            
+            <div id="alt-logo" style="display:none; border: 4px solid white; padding: 20px;">
+                <h2 style="font-size:3rem; margin:0;">BOBER</h2>
+                <h3 style="color:var(--bober-red); font-size:1.5rem;">LOGO HERE</h3>
+            </div>
+        </div>
+
+        <div class="price">5,55 PLN</div>
+
+        <a href="#" class="btn">KUP PUSZKĘ</a>
+
+        <div class="story">
+            <h2>Projekt: "Wyhodowany"</h2>
+            <p>
+                To nie jest napój, który powstał w Excelu. BOBER ENERGY to wynik eksperymentu, który wymknął się spod kontroli. Zamiast mieszać składniki w sterylnym labie, udaliśmy się tam, gdzie zasięg się kończy, a zaczyna instynkt.
+            </p>
+            <br>
+            <p>
+                <strong>My go nie wyprodukowaliśmy. My go wyhodowaliśmy.</strong>
+                Karmiony esencją leśnego mchu, surową mocą nurtu rzeki i bezkompromisową naturą. Zamknęliśmy tę dzikość w puszce, ale ostrzegamy – ta energia naprawdę gryzie. Pijesz na własną odpowiedzialność.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>

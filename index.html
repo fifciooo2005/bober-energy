@@ -22,10 +22,15 @@
 
         body {
             font-family: 'Arial Black', 'Impact', sans-serif;
-            background-color: var(--bober-dark);
-            color: var(--text-white);
-            overflow-x: hidden;
-            text-align: center;
+    background-color: var(--bober-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* To wycentruje zdjęcie i czarną ramkę na dole */
+    margin: 0;
+    padding: 0;
         }
 
         /* --- TŁO (PATTERN) --- */
@@ -153,7 +158,7 @@
   max-width: 600px;
   height: 400px;
   perspective: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
 }
 .flip-card-inner {
   position: relative;

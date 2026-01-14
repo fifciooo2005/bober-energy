@@ -172,8 +172,14 @@
             transform-style: preserve-3d;
         }
 
-        /* Obsługa dla laptopa (hover) oraz telefonu (klasa z JS) */
-        .flip-card:hover .flip-card-inner,
+      /* Obrót na laptopie (tylko dla urządzeń z myszką) */
+        @media (hover: hover) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+
+        /* Obrót na telefonie (poprzez kliknięcie/klasę) */
         .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
@@ -190,21 +196,13 @@
             transform: rotateY(180deg);
         }
 
-        /* TO NAPRAWI WIELKOŚĆ I KLIKANIE */
+        /* JEDEN STYL DLA WSZYSTKICH ZDJĘĆ W OBRACANEJ PUSZCE */
         .flip-card img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            pointer-events: none; /* Kluczowe: dotyk przechodzi do karty */
-        }
-/* TO NAPRAWI WIELKOŚĆ PUSZKI NA GÓRZE */
-        .flip-card-front img,
-        .flip-card-back img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
             display: block;
-            pointer-events: none; /* To pozwoli karcie "poczuć" Twój palec */
+            pointer-events: none; /* KLUCZ: pozwala klikać "przez" zdjęcie */
         }
         /* --- SLIDER ZDJĘĆ --- */
         .slider-container {

@@ -192,9 +192,10 @@
         }
         .slides-wrapper img {
             display: none;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%;       /* Zdjęcie zajmie całą szerokość ramki 300px */
+            height: 100%;      /* Zdjęcie zajmie całą wysokość ramki 300px */
+            object-fit: contain; /* To jest KLUCZ: puszka nie będzie ucięta ani rozciągnięta */
+            max-width: 100%;   /* Blokada, żeby nie uciekło z ramki */
         }
         .slides-wrapper img {
     display: none;       /* Chowa wszystkie zdjęcia */

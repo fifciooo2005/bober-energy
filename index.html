@@ -147,7 +147,33 @@
             h1 { font-size: 2.2rem; }
             .price { font-size: 3rem; }
             .logo-placeholder { width: 80%; }
-        }
+        }.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
     </style>
 </head>
 <body>
@@ -158,8 +184,16 @@
         
         <h1>ENERGIA, KTÓRA <span>GRYZIE</span></h1>
 
-        <div class="logo-placeholder">
-            <img src="logo-stare.png" alt="Bober Energy Logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
+        <div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="logo-stare.png" style="width:100%; height:auto;">
+        </div>
+        <div class="flip-card-back">
+            <img src="logo.png" style="width:100%; height:auto;">
+        </div>
+    </div>
+</div>
             
             <div id="alt-logo" style="display:none; border: 4px solid white; padding: 20px;">
                 <h2 style="font-size:3rem; margin:0;">BOBER</h2>

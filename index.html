@@ -163,7 +163,14 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent; /* Naprawa dla iPhone */
         }
-
+/* POWIĘKSZENIE TYLKO NA LAPTOPIE */
+        @media (min-width: 1024px) {
+            .flip-card {
+                width: 550px;      /* Dużo większa puszka na laptopie */
+                height: 750px;     /* Odpowiednio wyższa */
+                margin-bottom: 20px; /* Więcej odstępu od ceny na dużym ekranie */
+            }
+        }
         .flip-card-inner {
             position: relative;
             width: 100%;

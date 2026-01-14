@@ -149,8 +149,9 @@
             .logo-placeholder { width: 80%; }
         }.flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
   perspective: 1000px;
   margin: 0 auto;
 }
@@ -187,10 +188,10 @@
         <div class="flip-card">
     <div class="flip-card-inner">
         <div class="flip-card-front">
-            <img src="logo-stare.png" style="width:100%; height:auto;">
+            <img src="logo-stare.png" style="width:100%; height:100%; object-fit: contain;">
         </div>
         <div class="flip-card-back">
-            <img src="logo.png" style="width:100%; height:auto;">
+            <img src="logo.png" style="width:100%; height:100%; object-fit: contain;">
         </div>
     </div>
 </div>

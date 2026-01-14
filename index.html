@@ -196,6 +196,17 @@
             height: 100%;
             object-fit: cover;
         }
+        .slides-wrapper img {
+    display: none;       /* Chowa wszystkie zdjęcia */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Pilnuje, żeby puszka nie była rozciągnięta */
+}
+
+/* To pokazuje tylko to jedno, które aktualnie oglądasz */
+.slides-wrapper img.active {
+    display: block;
+}
         .slides-wrapper img.active {
             display: block;
         }

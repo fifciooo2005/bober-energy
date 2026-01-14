@@ -152,80 +152,90 @@
             h1 { font-size: 2.2rem; }
             .price { font-size: 3rem; }
             .logo-placeholder { width: 80%; }
-        }.flip-card {
+        }
+        /* --- GŁÓWNA PUSZKA (OBRÓT) --- */
+        .flip-card {
             background-color: transparent;
-            width: 100%;
-            max-width: 300px;
+            width: 300px;
             height: 500px;
             perspective: 1000px;
-            margin: 0 auto 10px auto;
-}
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-.flip-card:hover .flip-card-inner, 
+            margin: 0 auto 20px auto;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* Obrót po najechaniu lub kliknięciu */
+        .flip-card:hover .flip-card-inner, 
         .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
 
-        /* Style dla Slidera Zdjęć */
-        .slider-container {
-            position: relative;
+        .flip-card-front, .flip-card-back {
+            position: absolute;
             width: 100%;
-            max-width: 500px;
-            margin: 40px auto;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* --- SLIDER ZDJĘĆ --- */
+        .slider-container {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
+            margin: 60px auto; /* Większy margines odsuwa slider od przycisku */
+            width: 100%;
         }
+
         .slides-wrapper {
             width: 300px;
             height: 300px;
             overflow: hidden;
             border-radius: 20px;
             border: 3px solid var(--bober-green);
+            background: rgba(0,0,0,0.3);
         }
+
         .slides-wrapper img {
-            display: none;        /* To sprawi, że zdjęcia nie będą pod sobą */
-            width: 100%;          /* Zdjęcie dopasuje się do szerokości ramki */
-            height: 100%;         /* Zdjęcie dopasuje się do wysokości ramki */
-            object-fit: contain;  /* Puszka nie będzie ucięta ani wielka */
-            max-width: 100%;      /* Blokada, żeby nie rozpychało strony */
+            display: none; /* Kluczowe: chowa zdjęcia, by nie były pod sobą */
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .slides-wrapper img.active {
-            display: block;       /* Pokazuje tylko to zdjęcie, które aktualnie przeglądasz */
+            display: block; /* Pokazuje tylko aktywne zdjęcie */
         }
-        .slides-wrapper img {
-    display: none;       /* Chowa wszystkie zdjęcia */
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Pilnuje, żeby puszka nie była rozciągnięta */
-}
 
-/* To pokazuje tylko to jedno, które aktualnie oglądasz */
-.slides-wrapper img.active {
-    display: block;
-}
-        .slides-wrapper img.active {
-            display: block;
-        }
         .slider-btn {
             background: var(--bober-green);
             color: black;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
-            font-size: 20px;
-}
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .slider-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
     </style>
 </head>
 <body>
@@ -259,9 +269,9 @@
 <div class="slider-container">
         <button class="slider-btn" onclick="changeSlide(-1)">&#10094;</button>
         <div class="slides-wrapper">
-            <img src="zdjecie1.jpg" class="active">
-            <img src="zdjecie2.jpg">
-            <img src="zdjecie3.jpg">
+            <img src="przod.png" class="active">
+            <img src="prawo.png">
+            <img src="lewo.png">
         </div>
         <button class="slider-btn" onclick="changeSlide(1)">&#10095;</button>
     </div>
